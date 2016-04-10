@@ -22,3 +22,6 @@ pyinstaller -F -w -i story_chain_res/icon.ico story_chain/launcher.py
 pypi muchu1983
 登入 python setup.py register
 上傳 python setup.py sdist upload
+
+keystore
+keytool -genkey -v -keystore muchu1983.keystore -alias muchu1983 -keyalg RSA -keysize 2048 -validity 10000
