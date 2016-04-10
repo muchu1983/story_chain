@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+Copyright (C) 2015, MuChu Hsu
+Contributed by Muchu Hsu (muchu1983@gmail.com)
+This file is part of BSD license
+
+<https://opensource.org/licenses/BSD-3-Clause>
+-->
+<widget xmlns = "http://www.w3.org/ns/widgets"
+        xmlns:gap = "http://phonegap.com/ns/1.0"
+        id = "bennu"
+        versionCode = "10"
+        version = "1.0.0">
+        
+    <name>PhoneGap hello cherry</name>
+    
+    <description>
+        muchu hsu use jquery build android app
+    </description>
+    
+    <author href="https://github.com/muchu1983" email="muchu1983@gmail.com">
+        MuChu Hsu
+    </author>
+    
+</widget>
