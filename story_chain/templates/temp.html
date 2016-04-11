@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2015, MuChu Hsu
+Contributed by Muchu Hsu (muchu1983@gmail.com)
+This file is part of BSD license
+
+<https://opensource.org/licenses/BSD-3-Clause>
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    </head>
+    
+    <body>
+        <div>
+            i am template page for flask server
+        </div>
+        {% if name %}
+            <h1>Hello {{ name }}!</h1>
+        {% else %}
+            <h1>Hello World!</h1>
+        {% endif %}
+    </body>
+    
+</html>
