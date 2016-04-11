@@ -8,47 +8,26 @@ This file is part of BSD license
 -->
 <html>
     <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <!-- jquery-mobile lib -->
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <script src="js/jquery-1.11.1.min.js"></script>
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <!-- story_chain lib -->
+        <script src="js/story_chain.ui.js"></script>
     </head>
     
     <body>
-        <div data-role="page" id="p1">
+        <div data-role="page" id="main">
             <div data-role="header">
-                <h1>第一頁</h1>
+                <h1>主頁</h1>
             </div><!-- /header -->
 
             <div class="ui-content">
-                <a href="#p2">看下一頁</a>
-            </div><!-- /content -->
-
-            <div data-role="footer">
-                <h4>未完待續</h4>
-            </div><!-- /footer -->
-        </div><!-- /page -->
-        
-        <div data-role="page" id="p2">
-            <div data-role="header">
-                <h1>第二頁</h1>
-            </div><!-- /header -->
-
-            <div class="ui-content">
-                <a href="#p3">看下一頁</a>
-            </div><!-- /content -->
-
-            <div data-role="footer">
-                <h4>未完待續</h4>
-            </div><!-- /footer -->
-        </div><!-- /page -->
-        
-        <div data-role="page" id="p3">
-            <div data-role="header">
-                <h1>第三頁</h1>
-            </div><!-- /header -->
-
-            <div class="ui-content">
-                <a href="#p1">看下一頁</a>
+                <a href="#main">看下一頁</a>
+                <div id="demo">
+                    click me to gary.
+                </div>
             </div><!-- /content -->
 
             <div data-role="footer">
