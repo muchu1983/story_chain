@@ -13,7 +13,10 @@ app = Flask(__name__)
 
 @app.route("/hello/<username>/<int:num>", methods=["GET", "POST"])
 def hello(username, num):
-    return "Hello World! %s %d method: %s"%(username, num, request.method)
+    #http://192.168.1.101:5000/hello/muchu/7?love=lunna
+    request.form #get form data when POST
+    return "Hello World! %s %d method: %s args: %s"%(username, num, 
+                                                     request.method, request.args.get("love"))
     
 @app.route("/temp/")
 @app.route("/temp/<name>")
