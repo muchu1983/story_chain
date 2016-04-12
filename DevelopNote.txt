@@ -24,5 +24,5 @@ pypi muchu1983
 上傳 python setup.py sdist upload
 
 keystore
-keytool -genkey -v -keystore muchu1983.keystore -alias muchu1983 -keyalg RSA -keysize 2048 -validity 10000
+keytool -genkey -v -keystore muchu1983.keystore -alias muchu -keyalg RSA -keysize 2048 -validity 10000
 keystore password bee520
