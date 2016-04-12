@@ -15,6 +15,7 @@ This file is part of BSD license
         <script src="js/jquery.mobile-1.4.5.min.js"></script>
         <!-- story_chain lib -->
         <script src="js/story_chain.ui.js"></script>
+        <script src="js/story_chain.ajax.js"></script>
     </head>
     
     <body>
@@ -27,7 +28,10 @@ This file is part of BSD license
             <div class="ui-content">
                 <a class="ui-btn" href="#create_story_page">新的故事</a>
                 <a class="ui-btn" href="#select_story_page">舊的回憶</a>
-                <a class="ui-btn" href="#">離開遊戲</a>
+                <a id="exit_btn" class="ui-btn" href="#">離開遊戲</a>
+                <div>
+                    <p id="jsonapi_result">result<p>
+                </div>
             </div><!-- /content -->
 
             <div data-role="footer">
@@ -63,9 +67,6 @@ This file is part of BSD license
 
             <div class="ui-content">
                 <a class="ui-btn ui-btn-inline" href="#read_story_page">選項</a>
-                <div id="demo">
-                    click me to gary.
-                </div>
             </div><!-- /content -->
 
             <div data-role="footer">
@@ -78,9 +79,6 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <div id="demo">
-                    click me to gary.
-                </div>
             </div><!-- /content -->
 
             <div data-role="footer">
