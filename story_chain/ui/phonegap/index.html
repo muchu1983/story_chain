@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!--
+Copyright (C) 2015, MuChu Hsu
+Contributed by Muchu Hsu (muchu1983@gmail.com)
+This file is part of BSD license
+
+<https://opensource.org/licenses/BSD-3-Clause>
+-->
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <!-- jquery-mobile lib -->
+        <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+        <script src="js/jquery-1.11.1.min.js"></script>
+        <script src="js/jquery.mobile-1.4.5.min.js"></script>
+        <!-- story_chain lib -->
+        <script src="js/story_chain.ui.js"></script>
+    </head>
+    
+    <body>
+        <!-- 啟始頁 -->
+        <div data-role="page" id="start_page">
+            <div data-role="header">
+                <h1>啟始頁</h1>
+            </div><!-- /header -->
+
+            <div class="ui-content">
+                <a class="ui-btn" href="#create_story_page">新的故事</a>
+                <a class="ui-btn" href="#select_story_page">舊的回憶</a>
+                <a class="ui-btn" href="#">離開遊戲</a>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <h4>v1.0.0.1112</h4>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        <!-- 閱讀頁 -->
+        <div data-role="page" id="read_story_page">
+            <div data-role="header">
+                <h1>閱讀頁</h1>
+                <a class="ui-btn ui-btn-inline" href="#">贊</a>
+                <a class="ui-btn ui-btn-inline" href="#">噓</a>
+                <a class="ui-btn ui-btn-inline" href="#start_page">設定</a>
+            </div><!-- /header -->
+
+            <div class="ui-content">
+                <div id="demo">
+                    click me to gary.
+                </div>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <a class="ui-btn ui-btn-inline" href="#read_story_page">前一段</a>
+                <a class="ui-btn ui-btn-inline" href="#create_story_page">自己編</a>
+                <a class="ui-btn ui-btn-inline" href="#select_story_page">下一段</a>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        <!-- 選擇段落頁 -->
+        <div data-role="page" id="select_story_page">
+            <div data-role="header">
+                <h1>選擇段落頁</h1>
+            </div><!-- /header -->
+
+            <div class="ui-content">
+                <a class="ui-btn ui-btn-inline" href="#read_story_page">選項</a>
+                <div id="demo">
+                    click me to gary.
+                </div>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        <!-- 編撰故事頁 -->
+        <div data-role="page" id="create_story_page">
+            <div data-role="header">
+                <h1>編撰故事頁</h1>
+            </div><!-- /header -->
+
+            <div class="ui-content">
+                <div id="demo">
+                    click me to gary.
+                </div>
+            </div><!-- /content -->
+
+            <div data-role="footer">
+                <a class="ui-btn ui-btn-inline" href="#read_story_page">完成</a>
+                <a class="ui-btn ui-btn-inline" href="#read_story_page">放棄</a>
+            </div><!-- /footer -->
+        </div><!-- /page -->
+        
+    </body>
+    
+</html>
