@@ -8,14 +8,16 @@ This file is part of BSD license
 -->
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
-        id = "story_chain"
-        versionCode = "10"
+        id = "net.ddns.bennu.story_chain"
+        versionCode = "1111"
         version = "1.0.0">
-        
+    
+    <platform name="android" />
+    
     <name>故事接龍</name>
     
     <description>
-        muchu hsu use jquery build android app
+        讀他的故事，寫我的故事，讓大家讀我們的故事。
     </description>
     
     <author href="https://github.com/muchu1983" email="muchu1983@gmail.com">
