@@ -8,12 +8,13 @@ This file is part of BSD license
 (function($){
     $(document).ready(function(){
         $("#exit_btn").click(function(){
-            $.ajax({url: "http://192.168.1.101:5000/jsonapi",
+            $.ajax({url: "http://192.168.1.101:5000/jsonpapi",
                     data: {x:"999", y:"999"},
                     success: function(response){
                         $("#jsonapi_result").text(response.result);
                     },
                     dataType: "jsonp",
+                    jsonp: "strJsonpCallback",
                     crossDomain: true
             });
         });

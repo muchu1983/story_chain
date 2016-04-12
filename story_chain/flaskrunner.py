@@ -39,9 +39,9 @@ def template(name=None):
     return render_template("temp.html", name=name)
     
 #post json範例
-@app.route("/jsonapi", methods=["POST", "GET"])
+@app.route("/jsonpapi", methods=["POST", "GET"])
 def jsonapi():
-    strCallback = request.args.get("callback", 0, type=str)
+    strCallback = request.args.get("strJsonpCallback", 0, type=str)
     x = request.args.get("x", 0, type=int)
     y = request.args.get("y", 0, type=int)
     dicResultJson = {"result":x+y}
