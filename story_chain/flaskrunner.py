@@ -12,7 +12,7 @@ from flask import request
 from flask import render_template
 from flask import jsonify
 
-app = Flask(__name__)
+app = Flask(__name__.split(".")[0])
 
 #啟動 server
 def start_flask_server():
@@ -23,7 +23,7 @@ def start_flask_server():
 def apiXXX():
     pass
 
-#= 以下為範例 =
+#= Flask 範例 =
 #GET POST參數範例
 @app.route("/hello/<username>/<int:num>", methods=["GET", "POST"])
 def hello(username, num):
@@ -46,3 +46,6 @@ def jsonapi():
     y = request.args.get("y", 0, type=int)
     dicResultJson = {"result":x+y}
     return strCallback + "(" + json.dumps(dicResultJson) + ")"
+    
+if __name__ == "__main__":
+    start_flask_server()
