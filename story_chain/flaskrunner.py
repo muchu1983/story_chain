@@ -18,24 +18,32 @@ app = Flask(__name__.split(".")[0])
 def start_flask_server():
     app.run(host="0.0.0.0", port=5000, debug=True)
     
-#取得故事段落 
+#取得故事段落內容
 @app.route("/story_chain/api/story/<int:intStoryId>", methods=["GET"])
 def apiGetStoryById(intStoryId):
     pass
     
-#在指定的段落後 新增故事段落 (return 新段落 id)
-@app.route("/story_chain/api/story/<int:intStoryId>", methods=["POST"])
-def apiCreateStoryNextTo(intStoryId):
+#在指定的段落之後 加入新的故事段落 (return 新段落 id)
+@app.route("/story_chain/api/story", methods=["POST"])
+def apiCreateNewStory():
+    request.args.get("intStoryId")
     pass
     
-#取得下一段故事列表 (return 段落 id list)
-@app.route("/story_chain/api/story/next/<int:intStoryId>", methods=["GET"])
-def apiListNextStoryId(intStoryId):
+#取得 前 or 後 故事段 列表 (return 段落 id list)
+@app.route("/story_chain/api/story", methods=["GET"])
+def apiListStory():
+    request.args.get("strType") #"next" or "prev"
+    request.args.get("intStoryId")
     pass
     
-#取得上一段故事 (return 段落 id)
-@app.route("/story_chain/api/story/prev/<int:intStoryId>", methods=["GET"])
-def apiGetPrevStoryId(intStoryId):
+#讀取書籤
+@app.route("/story_chain/api/tag/<strTagName>", methods=["GET"])
+    pass
+
+#加入書籤
+@app.route("/story_chain/api/tag", methods=["POST"])
+    request.args.get("strTagName")
+    request.args.get("intStoryId")
     pass
 
 #= Flask 範例 =
