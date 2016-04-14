@@ -27,7 +27,6 @@ class LocalDbForStoryChain:
         self.db.commitSQL(strSQL=strSQLCreateTable)
         strSQLCreateTable = ("CREATE TABLE IF NOT EXISTS story_chain_chain("
                              "intId INTEGER PRIMARY KEY,"
-                             "intNextId INTEGER,"
                              "intStoryId INTEGER NOT NULL,"
                              "intPrevId INTEGER NOT NULL)")
         self.db.commitSQL(strSQL=strSQLCreateTable)
@@ -38,3 +37,46 @@ class LocalDbForStoryChain:
                              "numTimeLimit DATE NOT NULL)")
         self.db.commitSQL(strSQL=strSQLCreateTable)
         
+    #新增故事段落
+    def insertNewStory(self, strContent=None, intPrevId=0):
+        strSQL = "INSERT INTO story_chain_story VALUES(NULL, '%s', 0, 0)"%strContent
+        intLastRowId = self.db.commitSQL(strSQL=strSQL)
+        strSQL = "INSERT INTO story_chain_chain VALUES(NULL, %d, %d)"%(intLastRowId, intPrevId)
+        self.db.commitSQL(strSQL=strSQL)
+        
+    #取得指定段落資料 (內容,贊數,噓數)
+    def fetchStoryById(self, intStoryId=0):
+        strSQL = "SELECT * FROM story_chain_story WHERE intId=%d"%intStoryId
+        lstRowData = self.db.fetchallSQL(strSQL=strSQL)
+        tupleStoryData = ()
+        if lstRowData:
+            rowData = lstRowData[0]
+            tupleStoryData = (rowData["strContent"], rowData["intLike"], rowData["intDislike"])
+        return tupleStoryData
+        
+    #更新指定段落之贊數與噓數
+    def updateStoryLikeOrDislike(self, intStoryId=0, isLike=True):
+        tupleStoryData = self.fetchStoryById(intStoryId=intStoryId)
+        intLike = tupleStoryData[1]
+        intDislike = tupleStoryData[2]
+        if isLike:
+            intLike = intLike + 1
+        else:
+            intDislike = intDislike + 1
+        strSQL = "UPDATE story_chain_story SET intLike=%d, intDislike=%d WHERE intId=%d"%(intLike, intDislike, intStoryId)
+        self.db.commitSQL(strSQL=strSQL)
+        
+    #取得指定段落的 前段 或 後段
+    def fetchNextOrPrevStoryId(self, intStoryId=0, strFetchType=None):
+        lstIntStoryId = []
+        if strFetchType is "next": #後段 = 以目前 id 為 intPrevId 的 intStoryId
+            strSQL = "SELECT * FROM story_chain_chain WHERE intPrevId=%d"%intStoryId
+            lstRowData = self.db.fetchallSQL(strSQL=strSQL)
+            for rowData in lstRowData:
+                lstIntStoryId.append(rowData["intStoryId"])
+        elif strFetchType is "prev":#前段 = 以目前 id 為 intStoryId 的 intPrevId
+            strSQL = "SELECT * FROM story_chain_chain WHERE intStoryId=%d"%intStoryId
+            lstRowData = self.db.fetchallSQL(strSQL=strSQL)
+            for rowData in lstRowData:
+                lstIntStoryId.append(rowData["intPrevId"])
+        return lstIntStoryId

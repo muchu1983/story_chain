@@ -18,20 +18,20 @@ app = Flask(__name__.split(".")[0])
 def start_flask_server():
     app.run(host="0.0.0.0", port=5000, debug=True)
     
+#在指定的段落之後 加入新的故事段落 (return 新段落 id)
+@app.route("/story_chain/api/story", methods=["POST"])
+def apiPostNewStory():
+    request.args.get("intStoryId")
+    pass
+    
 #取得指定段落內容
 @app.route("/story_chain/api/story/<int:intStoryId>", methods=["GET"])
 def apiGetStoryById(intStoryId=0):
     pass
     
-#修改指定段落內容 (按贊/按噓/編輯內容)
+#修改指定段落內容 (按贊/按噓)
 @app.route("/story_chain/api/story/<int:intStoryId>", methods=["PUT"])
 def apiPutStoryById(intStoryId=0):
-    pass
-    
-#在指定的段落之後 加入新的故事段落 (return 新段落 id)
-@app.route("/story_chain/api/story", methods=["POST"])
-def apiPostNewStory():
-    request.args.get("intStoryId")
     pass
     
 #取得 前 or 後 故事段 列表 (return 段落 id list)

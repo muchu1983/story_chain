@@ -26,7 +26,13 @@ class LocalDbTest(unittest.TestCase):
     def test_localdb_for_story_chain(self):
         logging.info("LocalDbTest.test_localdb_for_story_chain")
         db = LocalDbForStoryChain()
-        
+        db.insertNewStory(strContent="content for unit test") #1
+        db.insertNewStory(strContent="content for unit test", intPrevId=1)#2
+        db.insertNewStory(strContent="content for unit test", intPrevId=2)#3
+        #0 -> #1 -> #2 -> #3
+        print(db.fetchStoryById(intStoryId=1))
+        db.updateStoryLikeOrDislike(intStoryId=1, isLike=True)
+        print(db.fetchNextOrPrevStoryId(intStoryId=2, strFetchType="next"))
 
 #測試開始
 if __name__ == "__main__":
