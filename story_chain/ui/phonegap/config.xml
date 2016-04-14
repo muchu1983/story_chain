@@ -9,7 +9,7 @@ This file is part of BSD license
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "net.ddns.bennu.story_chain"
-        versionCode = "1112"
+        versionCode = "1113"
         version = "1.0.0">
     
     <platform name="android" />
