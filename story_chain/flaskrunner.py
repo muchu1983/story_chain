@@ -18,9 +18,24 @@ app = Flask(__name__.split(".")[0])
 def start_flask_server():
     app.run(host="0.0.0.0", port=5000, debug=True)
     
-#/story_chain/api/
-@app.route("/story_chain/api")
-def apiXXX():
+#取得故事段落 
+@app.route("/story_chain/api/story/<int:intStoryId>", methods=["GET"])
+def apiGetStoryById(intStoryId):
+    pass
+    
+#在指定的段落後 新增故事段落 (return 新段落 id)
+@app.route("/story_chain/api/story/<int:intStoryId>", methods=["POST"])
+def apiCreateStoryNextTo(intStoryId):
+    pass
+    
+#取得下一段故事列表 (return 段落 id list)
+@app.route("/story_chain/api/story/next/<int:intStoryId>", methods=["GET"])
+def apiListNextStoryId(intStoryId):
+    pass
+    
+#取得上一段故事 (return 段落 id)
+@app.route("/story_chain/api/story/prev/<int:intStoryId>", methods=["GET"])
+def apiGetPrevStoryId(intStoryId):
     pass
 
 #= Flask 範例 =
