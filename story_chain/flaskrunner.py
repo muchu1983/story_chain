@@ -19,36 +19,36 @@ def start_flask_server():
     app.run(host="0.0.0.0", port=5000, debug=True)
     
 #在指定的段落之後 加入新的故事段落 (return 新段落 id)
-@app.route("/story_chain/api/story", methods=["POST"])
+@app.route("/story_chain/api_post/story", methods=["GET"])
 def apiPostNewStory():
     request.args.get("intStoryId")
     pass
     
 #取得指定段落內容
-@app.route("/story_chain/api/story/<int:intStoryId>", methods=["GET"])
+@app.route("/story_chain/api_get/story/<int:intStoryId>", methods=["GET"])
 def apiGetStoryById(intStoryId=0):
     pass
     
 #修改指定段落內容 (按贊/按噓)
-@app.route("/story_chain/api/story/<int:intStoryId>", methods=["PUT"])
+@app.route("/story_chain/api_put/story/<int:intStoryId>", methods=["GET"])
 def apiPutStoryById(intStoryId=0):
     pass
     
 #取得 前 or 後 故事段 列表 (return 段落 id list)
-@app.route("/story_chain/api/story", methods=["GET"])
+@app.route("/story_chain/api_get/story", methods=["GET"])
 def apiGetStoryList():
     request.args.get("strType") #"next" or "prev"
     request.args.get("intStoryId")
     pass
     
 #讀取書籤
-@app.route("/story_chain/api/tag/<strTagName>", methods=["GET"])
+@app.route("/story_chain/api_get/tag/<strTagName>", methods=["GET"])
 def apiGetTagByName(strTagName=None):
     pass
     
 
 #新增書籤 (書籤有時限)
-@app.route("/story_chain/api/tag", methods=["POST"])
+@app.route("/story_chain/api_post/tag", methods=["GET"])
 def apiPostTag(strTagName=None):
     request.args.get("strTagName")
     request.args.get("intStoryId")
@@ -70,7 +70,7 @@ def template(name=None):
     return render_template("temp.html", name=name)
     
 #post json範例
-@app.route("/jsonpapi", methods=["POST", "GET"])
+@app.route("/jsonpapi", methods=["GET"])
 def jsonpapi():
     strCallback = request.args.get("strJsonpCallback", 0, type=str)
     x = request.args.get("x", 0, type=int)
