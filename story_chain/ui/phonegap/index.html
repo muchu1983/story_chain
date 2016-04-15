@@ -22,10 +22,10 @@ This file is part of BSD license
     </head>
     
     <body>
-        <!-- 啟始頁 -->
-        <div data-role="page" id="start_page">
-            <div data-role="header">
-                <h1>啟始頁</h1>
+        <!-- 首頁 -->
+        <div data-role="page" id="start_page" data-theme="b">
+            <div data-role="header" class="page_header">
+                <h1>首頁</h1>
             </div><!-- /header -->
 
             <div class="ui-content">
@@ -36,51 +36,58 @@ This file is part of BSD license
                 </div>
             </div><!-- /content -->
 
-            <div data-role="footer">
-                <h4>v1.0.0.1124</h4>
+            <div data-role="footer" class="page_footer">
+                <h4>v1.0.0.1125</h4>
             </div><!-- /footer -->
         </div><!-- /page -->
         <!-- 閱讀頁 -->
-        <div data-role="page" id="read_story_page">
-            <div data-role="header">
-                <h1>閱讀頁</h1>
-                <a class="ui-btn ui-btn-inline" href="#">贊</a>
-                <a class="ui-btn ui-btn-inline" href="#">噓</a>
-                <a class="ui-btn ui-btn-inline" href="#start_page">設定</a>
+        <div data-role="page" id="read_story_page" data-theme="b">
+            <div data-role="header" class="page_header">
+                <div data-role="navbar">
+                    <ul>
+                        <li><a data-icon="heart" href="#">喜歡</a></li>
+                        <li><a data-icon="delete" href="#">討厭</a></li>
+                        <li><a data-icon="tag" href="#">書籤</a></li>
+                        <li><a data-icon="home" href="#start_page">首頁</a></li>
+                    </ul>
+                </div><!-- /navbar -->
             </div><!-- /header -->
 
             <div class="ui-content">
+                <h1>閱讀頁</h1>
             </div><!-- /content -->
 
-            <div data-role="footer">
+            <div data-role="footer" class="page_footer">
                 <a class="ui-btn ui-btn-inline" href="#read_story_page">前一段</a>
                 <a class="ui-btn ui-btn-inline" href="#create_story_page">自己編</a>
                 <a class="ui-btn ui-btn-inline" href="#select_story_page">下一段</a>
             </div><!-- /footer -->
         </div><!-- /page -->
         <!-- 選擇段落頁 -->
-        <div data-role="page" id="select_story_page">
-            <div data-role="header">
+        <div data-role="page" id="select_story_page" data-theme="b">
+            <div data-role="header" class="page_header">
                 <h1>選擇段落頁</h1>
             </div><!-- /header -->
 
             <div class="ui-content">
-                <a class="ui-btn ui-btn-inline" href="#read_story_page">選項</a>
+                <a class="ui-btn" href="#read_story_page">書籤一</a>
+                <a class="ui-btn" href="#read_story_page">書籤二</a>
+                <a class="ui-btn" href="#read_story_page">書籤三</a>
             </div><!-- /content -->
 
-            <div data-role="footer">
+            <div data-role="footer" class="page_footer">
             </div><!-- /footer -->
         </div><!-- /page -->
         <!-- 編撰故事頁 -->
-        <div data-role="page" id="create_story_page">
-            <div data-role="header">
+        <div data-role="page" id="create_story_page" data-theme="b">
+            <div data-role="header" class="page_header">
                 <h1>編撰故事頁</h1>
             </div><!-- /header -->
 
             <div class="ui-content">
             </div><!-- /content -->
 
-            <div data-role="footer">
+            <div data-role="footer" class="page_footer">
                 <a class="ui-btn ui-btn-inline" href="#read_story_page">完成</a>
                 <a class="ui-btn ui-btn-inline" href="#read_story_page">放棄</a>
             </div><!-- /footer -->

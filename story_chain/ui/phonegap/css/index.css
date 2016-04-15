@@ -6,10 +6,16 @@ This file is part of BSD license
 <https://opensource.org/licenses/BSD-3-Clause>
  */
 body {
-    font-family:Microsoft JhengHei, MingLiU, Helvetica, Arial, sans-serif;
-    font-size:12px;
-    height:100%;
-    margin:0px;
-    padding:0px;
-    width:100%;
+    font-family : Microsoft JhengHei, MingLiU, Helvetica, Arial, sans-serif;
+    font-size : 12px;
+    height : 100%;
+    margin : 0px;
+    padding : 0px;
+    width : 100%;
+}
+div.page_header {
+    height : 48px;
+}
+div.page_footer{
+    height : 48px;
 }
