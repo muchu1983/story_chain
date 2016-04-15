@@ -9,7 +9,7 @@ This file is part of BSD license
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "net.ddns.bennu.story_chain"
-        versionCode = "1121"
+        versionCode = "1122"
         version = "1.0.0">
     <!-- 軟體資訊 -->
     <name>故事接龍</name>
@@ -23,6 +23,7 @@ This file is part of BSD license
     <!-- PhoneGap 設定 -->
     <platform name="android" />
     <preference name="fullscreen" value="true" />
-    <plugin name="cordova-plugin-whitelist" />
+    <!-- Plugin -->
+    <plugin name="cordova-plugin-whitelist" spec="1.2.1" />
     <allow-navigation href="http://bennu.ddns.net/*" />
 </widget>
