@@ -20,8 +20,7 @@ This file is part of BSD license
     $(window).on("resize orientationchange", function(){
         ScaleContentToDevice();
     });
-
-    
+    /* html 完成載入 */
     $(document).ready(function(){
         
         
