@@ -23,7 +23,7 @@ This file is part of BSD license
         /*新的故事*/
         /*舊的回憶*/
         /*範例*/
-        var api_url = "http://192.168.1.101:5000/jsonpapi";
+        var api_url = "http://bennu.ddns.net:5000/jsonpapi";
         var json_data = {x:"555", y:"333"};
         $("#jsonpapi_result").click(function(){
             call_jsonp_api(api_url, json_data, function(response){
