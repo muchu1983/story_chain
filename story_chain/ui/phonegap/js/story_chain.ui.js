@@ -7,8 +7,10 @@ This file is part of BSD license
 */
 (function($) {
     $(document).ready(function(){
-        $("#demo").click(function(){
-            $("#demo").css("background-color","gray");
+        /*離開遊戲*/
+        $("#exit_btn").click(function(){
+            /*navigator.app.exitApp();*/
         });
+        
     });
 })(jQuery);

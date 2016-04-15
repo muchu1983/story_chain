@@ -25,7 +25,7 @@ This file is part of BSD license
         /*範例*/
         var api_url = "http://192.168.1.101:5000/jsonpapi";
         var json_data = {x:"555", y:"333"};
-        $("#exit_btn").click(function(){
+        $("#jsonpapi_result").click(function(){
             call_jsonp_api(api_url, json_data, function(response){
                 $("#jsonpapi_result").text(response.result);
             });
