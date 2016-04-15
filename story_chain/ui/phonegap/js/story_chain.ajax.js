@@ -7,6 +7,7 @@ This file is part of BSD license
 */
 (function($){
     
+    /* 呼叫 story_chain JSONP API */
     function call_jsonp_api(api_url, json_data, success_callback){
         $.ajax({url: api_url,
             data: json_data,
@@ -17,8 +18,11 @@ This file is part of BSD license
         });
     }
     
-    /*範例*/
+    /* html document ready */
     $(document).ready(function(){
+        /*新的故事*/
+        /*舊的回憶*/
+        /*範例*/
         var api_url = "http://192.168.1.101:5000/jsonpapi";
         var json_data = {x:"555", y:"333"};
         $("#exit_btn").click(function(){
