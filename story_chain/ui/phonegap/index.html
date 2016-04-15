@@ -29,8 +29,8 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <a class="ui-btn" href="#create_story_page">新的故事</a>
-                <a class="ui-btn" href="#select_story_page">舊的回憶</a>
+                <a class="ui-btn ui-btn-icon-left ui-icon-plus" href="#create_story_page">新的故事</a>
+                <a class="ui-btn ui-btn-icon-left ui-icon-action" href="#select_story_page">舊的回憶</a>
                 <div>
                     <p id="jsonpapi_result">result<p>
                 </div>
@@ -58,9 +58,9 @@ This file is part of BSD license
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
-                <a class="ui-btn ui-btn-inline" href="#read_story_page">前一段</a>
-                <a class="ui-btn ui-btn-inline" href="#create_story_page">自己編</a>
-                <a class="ui-btn ui-btn-inline" href="#select_story_page">下一段</a>
+                <a class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-arrow-l" href="#read_story_page">前一段</a>
+                <a class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-edit" href="#create_story_page">接寫新段落</a>
+                <a class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="#select_story_page">下一段</a>
             </div><!-- /footer -->
         </div><!-- /page -->
         <!-- 選擇段落頁 -->
@@ -70,9 +70,11 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <a class="ui-btn" href="#read_story_page">書籤一</a>
-                <a class="ui-btn" href="#read_story_page">書籤二</a>
-                <a class="ui-btn" href="#read_story_page">書籤三</a>
+                <ul data-role="listview" data-filter="true">
+                    <li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#read_story_page">書籤一</a></li>
+                    <li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#read_story_page">書籤二</a></li>
+                    <li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#read_story_page">書籤三</a></li>
+                </ul>
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
