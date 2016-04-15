@@ -9,19 +9,19 @@ This file is part of BSD license
 <widget xmlns = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id = "net.ddns.bennu.story_chain"
-        versionCode = "1116"
+        versionCode = "1120"
         version = "1.0.0">
-        
-    <platform name="android" />
-    
+    <!-- 軟體資訊 -->
     <name>故事接龍</name>
-    
     <description>
         讀他的故事，寫我的故事，讓大家讀我們的故事。
     </description>
-    
     <author href="https://github.com/muchu1983" email="muchu1983@gmail.com">
         MuChu Hsu
     </author>
-    
+    <!-- PhoneGap 設定 -->
+    <platform name="android" />
+    <preference name="fullscreen" value="true" />
+    <plugin name="cordova-plugin-whitelist" />
+    <allow-navigation href="http://bennu.ddns.net/*" />
 </widget>
