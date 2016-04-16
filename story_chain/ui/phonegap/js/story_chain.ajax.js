@@ -6,7 +6,8 @@ This file is part of BSD license
 <https://opensource.org/licenses/BSD-3-Clause>
 */
 (function($){
-    var strApiServerDomain = "http://127.0.0.1:5000";
+    var strApiServerDomain = "http://bennu.ddns.net:5000"; //deploy
+    //var strApiServerDomain = "http://127.0.0.1:5000"; //test
     var intCurrentStoryId;
     
     /* 呼叫 story_chain JSONP API */
@@ -56,7 +57,7 @@ This file is part of BSD license
         });
         /*舊的回憶*/
         /*範例*/
-        var api_url = "http://127.0.0.1:5000/jsonpapi";
+        var api_url = strApiServerDomain + "/jsonpapi";
         var json_data = {x:"555", y:"333"};
         $("#jsonpapi_result").click(function(){
             call_jsonp_api(api_url, json_data, function(response){
