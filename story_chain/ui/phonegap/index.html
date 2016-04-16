@@ -29,8 +29,8 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <a class="ui-btn ui-btn-icon-left ui-icon-plus" href="#create_story_page">新的故事</a>
-                <a class="ui-btn ui-btn-icon-left ui-icon-action" href="#select_story_page">舊的回憶</a>
+                <a id="btn_create_first_story" class="ui-btn ui-btn-icon-left ui-icon-plus" href="#create_story_page">新的故事</a>
+                <a id="btn_load_story_tag" class="ui-btn ui-btn-icon-left ui-icon-action" href="#select_story_page">舊的回憶</a>
                 <div>
                     <p id="jsonpapi_result">result<p>
                 </div>
@@ -45,8 +45,8 @@ This file is part of BSD license
             <div data-role="header" class="page_header">
                 <div data-role="navbar">
                     <ul>
-                        <li><a data-icon="heart" href="#">喜歡</a></li>
-                        <li><a data-icon="delete" href="#">討厭</a></li>
+                        <li><a data-icon="heart" href="#">喜歡<span id="like_count">xx</span></a></li>
+                        <li><a data-icon="delete" href="#">討厭<span id="dislike_count">xx</span></a></li>
                         <li><a data-icon="tag" href="#">書籤</a></li>
                         <li><a data-icon="home" href="#start_page">首頁</a></li>
                     </ul>
@@ -54,7 +54,8 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <h1>閱讀頁</h1>
+                <div id="current_story_content">
+                </div>
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
@@ -83,16 +84,25 @@ This file is part of BSD license
         <!-- 編撰故事頁 -->
         <div data-role="page" id="create_story_page" data-theme="b">
             <div data-role="header" class="page_header">
-                <h1>編撰故事頁</h1>
+                <a class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-eye" href="#">查看前一段</a>
             </div><!-- /header -->
 
             <div class="ui-content">
+                <div class="ui-field-contain">
+                    <label for="textarea_new_story">段落內容:</label>
+                    <textarea id="textarea_new_story_content" placeholder="限制140字"></textarea>
+                </div>
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
-                <a class="ui-btn ui-btn-inline" href="#read_story_page">完成</a>
-                <a class="ui-btn ui-btn-inline" href="#read_story_page">放棄</a>
+                <a id="btn_edit_ok" class="ui-btn ui-btn-inline" href="#">完成</a>
+                <a id="btn_edit_cancel" class="ui-btn ui-btn-inline" href="#">放棄</a>
             </div><!-- /footer -->
+            
+            <div data-role="popup" id="popup_story_create_okay" data-dismissible="false">
+                <p>段落新增完成。</p>
+                <a id="btn_okay" data-role="button" href="#">好</a>
+            </div>
         </div><!-- /page -->
         
     </body>

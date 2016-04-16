@@ -11,6 +11,7 @@ from flask import Flask
 from flask import request
 from flask import render_template
 from flask import jsonify
+from story_chain.localdb import LocalDbForStoryChain
 
 app = Flask(__name__.split(".")[0])
 
@@ -18,16 +19,29 @@ app = Flask(__name__.split(".")[0])
 def start_flask_server():
     app.run(host="0.0.0.0", port=5000, debug=True)
     
+#建立 jsonp response
+def make_jsonp_response(dicJsonObj=None):
+    strCallback = request.args.get("strJsonpCallback", 0, type=str)
+    return strCallback + "(" + json.dumps(dicJsonObj) + ")"
+    
 #在指定的段落之後 加入新的故事段落 (return 新段落 id)
 @app.route("/story_chain/api_post/story", methods=["GET"])
 def apiPostNewStory():
-    request.args.get("intStoryId")
-    pass
+    db = LocalDbForStoryChain()
+    strStoryContent = request.args.get("str_story_content", type=str)
+    intPrevStoryId = request.args.get("int_prev_story_id", type=int)
+    intNewStoryId = db.insertNewStory(strContent=strStoryContent, intPrevId=intPrevStoryId)
+    return make_jsonp_response(dicJsonObj={"new_story_id":intNewStoryId})
     
 #取得指定段落內容
 @app.route("/story_chain/api_get/story/<int:intStoryId>", methods=["GET"])
 def apiGetStoryById(intStoryId=0):
-    pass
+    db = LocalDbForStoryChain()
+    (strContent, intLike, intDislike) = db.fetchStoryById(intStoryId=intStoryId)
+    dicJsonObj = {"str_content":strContent,
+                  "int_like":intLike,
+                  "int_dislike":intDislike}
+    return make_jsonp_response(dicJsonObj=dicJsonObj)
     
 #修改指定段落內容 (按贊/按噓)
 @app.route("/story_chain/api_put/story/<int:intStoryId>", methods=["GET"])
@@ -72,11 +86,10 @@ def template(name=None):
 #post json範例
 @app.route("/jsonpapi", methods=["GET"])
 def jsonpapi():
-    strCallback = request.args.get("strJsonpCallback", 0, type=str)
     x = request.args.get("x", 0, type=int)
     y = request.args.get("y", 0, type=int)
     dicResultJson = {"result":x+y}
-    return strCallback + "(" + json.dumps(dicResultJson) + ")"
+    return make_jsonp_response(dicJsonObj=dicResultJson)
     
 if __name__ == "__main__":
     start_flask_server()

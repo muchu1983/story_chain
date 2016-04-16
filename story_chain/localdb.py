@@ -43,6 +43,7 @@ class LocalDbForStoryChain:
         intLastRowId = self.db.commitSQL(strSQL=strSQL)
         strSQL = "INSERT INTO story_chain_chain VALUES(NULL, %d, %d)"%(intLastRowId, intPrevId)
         self.db.commitSQL(strSQL=strSQL)
+        return intLastRowId
         
     #取得指定段落資料 (內容,贊數,噓數)
     def fetchStoryById(self, intStoryId=0):
