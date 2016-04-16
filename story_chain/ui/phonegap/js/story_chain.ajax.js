@@ -29,7 +29,7 @@ This file is part of BSD license
         });
         $("#btn_edit_ok").click(function(){ // 編輯 新的故事 完成
             var intPrevStoryId = intCurrentStoryId;
-            var strStoryContent = $("#textarea_new_story_content").text();
+            var strStoryContent = $("#textarea_new_story_content").val();
             // ajax api /story_chain/api_post/story
             var api_url = strApiServerDomain + "/story_chain/api_post/story";
             var json_data = {int_prev_story_id : intPrevStoryId,
@@ -52,6 +52,7 @@ This file is part of BSD license
                     $("span#like_count").text(response.int_like)
                     $("span#dislike_count").text(response.int_dislike)
                     $("div#current_story_content").text(response.str_content)
+                    $("div#current_story_content").val(response.str_content)
                 });
             };
         });
