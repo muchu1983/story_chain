@@ -23,7 +23,16 @@ This file is part of BSD license
     
     /* html document ready */
     $(document).ready(function(){
-        $(".te_editor").jqte();
+        $(".te_editor").jqte({
+            source: false,
+            remove: false,
+            sub: false,
+            sup: false,
+            ol: false,
+            ul: false,
+            unlink: false,
+            link: false
+        });
         /*新的故事*/
         $("#btn_create_first_story").click(function(){ //按下 新的故事
             intCurrentStoryId = 0;
