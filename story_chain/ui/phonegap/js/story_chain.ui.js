@@ -31,7 +31,9 @@ This file is part of BSD license
             ol: false,
             ul: false,
             unlink: false,
-            link: false
+            link: false,
+            strike: false,
+            format: false
         });
         
     });
