@@ -8,10 +8,10 @@ This file is part of BSD license
 body {
     font-family : Microsoft JhengHei, MingLiU, Helvetica, Arial, sans-serif;
     font-size : 12px;
+    width : 100%;
     height : 100%;
     margin : 0px;
     padding : 0px;
-    width : 100%;
 }
 div.page_header {
     height : 48px;
