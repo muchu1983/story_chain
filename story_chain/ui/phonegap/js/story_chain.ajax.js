@@ -23,6 +23,7 @@ This file is part of BSD license
     
     /* html document ready */
     $(document).ready(function(){
+        $(".te_editor").jqte();
         /*新的故事*/
         $("#btn_create_first_story").click(function(){ //按下 新的故事
             intCurrentStoryId = 0;
@@ -51,8 +52,8 @@ This file is part of BSD license
                 call_jsonp_api(api_url, {}, function(response){
                     $("span#like_count").text(response.int_like)
                     $("span#dislike_count").text(response.int_dislike)
-                    $("div#current_story_content").text(response.str_content)
-                    $("div#current_story_content").val(response.str_content)
+                    $("#current_story_content").text(response.str_content)
+                    $("#current_story_content").jqteVal(response.str_content)
                 });
             };
         });

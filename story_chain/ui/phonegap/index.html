@@ -13,6 +13,9 @@ This file is part of BSD license
         <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
         <script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
         <script type="text/javascript" src="js/jquery.mobile-1.4.5.min.js"></script>
+        <!-- jquery te-->
+        <script type="text/javascript" src="js/jquery-te-1.4.0.min.js"></script>
+        <link rel="stylesheet" href="css/jquery-te-1.4.0.css" />
         <!-- PhoneGap -->
         
         <!-- story_chain lib -->
@@ -52,8 +55,7 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <div id="current_story_content">
-                </div>
+                <textarea id="current_story_content" class="te_editor"></textarea>
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
@@ -87,7 +89,7 @@ This file is part of BSD license
 
             <div class="ui-content">
                 <label for="textarea_new_story">段落內容:</label>
-                <textarea id="textarea_new_story_content" placeholder="限制140字"></textarea>
+                <textarea id="textarea_new_story_content" class="te_editor" placeholder="限制140字"></textarea>
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
