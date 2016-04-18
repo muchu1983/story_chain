@@ -64,10 +64,12 @@ This file is part of BSD license
                 <a id="btn_next_story" class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="javascript: void(0)">下一段</a>
             </div><!-- /footer -->
             <!-- popup -->
-            <div data-role="popup" id="popup_prev_story_not_exists" data-dismissible="true">
+            <div data-role="popup" id="popup_prev_story_not_exists" class="popup" data-dismissible="true">
+                <a href="javascript: void(0)" data-rel="back" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right ui-corner-all">Close</a>
                 <p>已經是故事的開始。</p>
             </div>
-            <div data-role="popup" id="popup_next_story_not_exists" data-dismissible="true">
+            <div data-role="popup" id="popup_next_story_not_exists" class="popup" data-dismissible="true">
+                <a href="javascript: void(0)" data-rel="back" class="ui-btn ui-icon-delete ui-btn-icon-notext ui-btn-right ui-corner-all">Close</a>
                 <p>已找不到下一段故事，你可以接寫下去。</p>
             </div>
         </div><!-- /page -->
@@ -100,7 +102,7 @@ This file is part of BSD license
                 <a id="btn_edit_cancel" class="ui-btn ui-btn-inline" href="javascript: void(0)">放棄</a>
             </div><!-- /footer -->
             <!-- popup -->
-            <div data-role="popup" id="popup_story_create_okay" data-dismissible="false">
+            <div data-role="popup" id="popup_story_create_okay" class="popup" data-dismissible="false">
                 <p>段落新增完成。</p>
                 <a id="btn_okay" data-role="button" href="javascript: void(0)">好</a>
             </div>

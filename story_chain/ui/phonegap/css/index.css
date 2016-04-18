@@ -19,3 +19,6 @@ div.page_header {
 div.page_footer{
     height : 48px;
 }
+div.popup {
+    padding : 10px;
+}
