@@ -61,11 +61,14 @@ This file is part of BSD license
             <div data-role="footer" class="page_footer">
                 <a id="btn_prev_story" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-arrow-l" href="#">前一段</a>
                 <a id="btn_create_next_story" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-edit" href="#create_story_page">接寫新段落</a>
-                <a class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="#select_story_page">下一段</a>
+                <a id="btn_next_story" class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="#">下一段</a>
             </div><!-- /footer -->
             <!-- popup -->
             <div data-role="popup" id="popup_prev_story_not_exists" data-dismissible="true">
                 <p>已經是故事的開始。</p>
+            </div>
+            <div data-role="popup" id="popup_next_story_not_exists" data-dismissible="true">
+                <p>已找不到下一段故事，你可以接寫下去。</p>
             </div>
         </div><!-- /page -->
         <!-- 選擇段落頁 -->
@@ -75,10 +78,7 @@ This file is part of BSD license
             </div><!-- /header -->
 
             <div class="ui-content">
-                <ul data-role="listview" data-filter="true">
-                    <li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#read_story_page">書籤一</a></li>
-                    <li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#read_story_page">書籤二</a></li>
-                    <li><a class="ui-btn ui-btn-icon-right ui-icon-carat-r" href="#read_story_page">書籤三</a></li>
+                <ul id="ul_story_option_list" data-role="listview" data-filter="true">
                 </ul>
             </div><!-- /content -->
 

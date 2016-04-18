@@ -55,8 +55,16 @@ def apiGetStoryList():
     strType = request.args.get("str_type", type=str) #"next" or "prev"
     intStoryId = request.args.get("int_story_id", type=int)
     lstIntStoryId = db.fetchNextOrPrevStoryId(intStoryId=intStoryId, strFetchType=strType)
-    return make_jsonp_response({"str_prev_story_id":(lstIntStoryId[0] if lstIntStoryId else 0)})
-    
+    dicJsonObj = None
+    if strType == "prev":
+        #前一段必定是唯一的
+        dicJsonObj = {"int_prev_story_id":(lstIntStoryId[0] if lstIntStoryId else 0)}
+    elif strType == "next":
+        #下一段可能有多個選擇
+        dicJsonObj = {"lst_int_next_story_id":lstIntStoryId}
+    else:
+        dicJsonObj = {}
+    return make_jsonp_response(dicJsonObj)
 #讀取書籤
 @app.route("/story_chain/api_get/tag/<strTagName>", methods=["GET"])
 def apiGetTagByName(strTagName=None):
