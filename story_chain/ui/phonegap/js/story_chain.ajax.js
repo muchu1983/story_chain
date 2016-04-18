@@ -11,10 +11,10 @@ This file is part of BSD license
     var intCurrentStoryId;
     
     /* 呼叫 story_chain JSONP API */
-    function call_jsonp_api(api_url, json_data, success_callback){
-        $.ajax({url: api_url,
-            data: json_data,
-            success: success_callback,
+    function callJsonpApi(strApiUrl, dicJsonData, funcCallback){
+        $.ajax({url: strApiUrl,
+            data: dicJsonData,
+            success: funcCallback,
             dataType: "jsonp",
             jsonp: "strJsonpCallback",
             crossDomain: true
@@ -33,10 +33,10 @@ This file is part of BSD license
             var intPrevStoryId = intCurrentStoryId;
             var strStoryContent = $("#textarea_new_story_content").val();
             // ajax api /story_chain/api_post/story
-            var api_url = strApiServerDomain + "/story_chain/api_post/story";
-            var json_data = {int_prev_story_id : intPrevStoryId,
+            var strApiUrl = strApiServerDomain + "/story_chain/api_post/story";
+            var dicJsonData = {int_prev_story_id : intPrevStoryId,
                              str_story_content : strStoryContent};
-            call_jsonp_api(api_url, json_data, function(response){
+            callJsonpApi(strApiUrl, dicJsonData, function(response){
                 intCurrentStoryId = response.new_story_id;
                 $("#popup_story_create_okay").popup("open");
                 $("#popup_story_create_okay #btn_okay").click(function(){
@@ -62,8 +62,8 @@ This file is part of BSD license
                 case "read_story_page":
                     /* 切換至閱讀頁 */
                     // ajax api /story_chain/api_get/story/<int:intStoryId>
-                    var api_url = strApiServerDomain + "/story_chain/api_get/story/" + intCurrentStoryId;
-                    call_jsonp_api(api_url, {}, function(response){
+                    var strApiUrl = strApiServerDomain + "/story_chain/api_get/story/" + intCurrentStoryId;
+                    callJsonpApi(strApiUrl, {}, function(response){
                         $("span#like_count").text(response.int_like);
                         $("span#dislike_count").text(response.int_dislike);
                         $("#current_story_content").html(response.str_content);
@@ -79,9 +79,9 @@ This file is part of BSD license
         /*前一段*/
         $("#btn_prev_story").click(function(){
             // ajax api /story_chain/api_get/story
-            var api_url = strApiServerDomain + "/story_chain/api_get/story";
-            var json_data = {str_type: "prev", int_story_id: intCurrentStoryId};
-            call_jsonp_api(api_url, json_data, function(response){
+            var strApiUrl = strApiServerDomain + "/story_chain/api_get/story";
+            var dicJsonData = {str_type: "prev", int_story_id: intCurrentStoryId};
+            callJsonpApi(strApiUrl, dicJsonData, function(response){
                 if(response.int_prev_story_id == 0){
                     // 已是故事的開頭
                     $("#popup_prev_story_not_exists").popup("open");
@@ -101,9 +101,9 @@ This file is part of BSD license
         /*下一段*/
         $("#btn_next_story").click(function(){
             // ajax api /story_chain/api_get/story
-            var api_url = strApiServerDomain + "/story_chain/api_get/story";
-            var json_data = {str_type: "next", int_story_id: intCurrentStoryId};
-            call_jsonp_api(api_url, json_data, function(response){
+            var strApiUrl = strApiServerDomain + "/story_chain/api_get/story";
+            var dicJsonData = {str_type: "next", int_story_id: intCurrentStoryId};
+            callJsonpApi(strApiUrl, dicJsonData, function(response){
                 var lst_int_next_story_id = response.lst_int_next_story_id;
                 if(lst_int_next_story_id.length == 0){
                     // 已沒有下一段故事
@@ -121,10 +121,10 @@ This file is part of BSD license
         });
         /*舊的回憶*/
         /*範例*/
-        var api_url = strApiServerDomain + "/jsonpapi";
-        var json_data = {x:"555", y:"333"};
+        var strApiUrl = strApiServerDomain + "/jsonpapi";
+        var dicJsonData = {x:"555", y:"333"};
         $("#jsonpapi_result").click(function(){
-            call_jsonp_api(api_url, json_data, function(response){
+            callJsonpApi(strApiUrl, dicJsonData, function(response){
                 $("#jsonpapi_result").text(response.result);
             });
         });
