@@ -59,10 +59,14 @@ This file is part of BSD license
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
-                <a class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-arrow-l" href="#read_story_page">前一段</a>
+                <a id="btn_prev_story" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-arrow-l" href="#">前一段</a>
                 <a class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-edit" href="#create_story_page">接寫新段落</a>
                 <a class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="#select_story_page">下一段</a>
             </div><!-- /footer -->
+            
+            <div data-role="popup" id="popup_prev_story_not_exists" data-dismissible="true">
+                <p>已經是故事的開始。</p>
+            </div>
         </div><!-- /page -->
         <!-- 選擇段落頁 -->
         <div data-role="page" id="select_story_page" data-theme="b">

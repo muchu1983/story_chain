@@ -51,9 +51,11 @@ def apiPutStoryById(intStoryId=0):
 #取得 前 or 後 故事段 列表 (return 段落 id list)
 @app.route("/story_chain/api_get/story", methods=["GET"])
 def apiGetStoryList():
-    request.args.get("strType") #"next" or "prev"
-    request.args.get("intStoryId")
-    pass
+    db = LocalDbForStoryChain()
+    strType = request.args.get("str_type", type=str) #"next" or "prev"
+    intStoryId = request.args.get("int_story_id", type=int)
+    lstIntStoryId = db.fetchNextOrPrevStoryId(intStoryId=intStoryId, strFetchType=strType)
+    return make_jsonp_response({"str_prev_story_id":(lstIntStoryId[0] if lstIntStoryId else None)})
     
 #讀取書籤
 @app.route("/story_chain/api_get/tag/<strTagName>", methods=["GET"])
