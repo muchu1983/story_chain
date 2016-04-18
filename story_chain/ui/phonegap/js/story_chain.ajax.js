@@ -115,12 +115,23 @@ This file is part of BSD license
                     $("ul#ul_story_option_list").html(""); //empty ul
                     for (i = 0; i < lst_int_next_story_id.length; i++) {
                         var intNextStoryId = lst_int_next_story_id[i];
-                        $("ul#ul_story_option_list").append("<li><a class=\"ui-btn ui-btn-icon-right ui-icon-carat-r\" href=\"#read_story_page\">段落編號:" + intNextStoryId + "</a></li>");
+                        var strOptionHtml = ["<li>",
+                                                "<a class=\"story_option ui-btn ui-btn-icon-right ui-icon-carat-r\"",
+                                                   "href=\"#read_story_page\"", 
+                                                   "value=\"" + intNextStoryId + "\">",
+                                                        "ID: " + intNextStoryId,
+                                                "</a>",
+                                             "</li>"].join("");
+                        $("ul#ul_story_option_list").append(strOptionHtml);
                     };
                     // 切換至段落選擇頁
                     $("body").pagecontainer("change", "#select_story_page", {});
                 };
             });
+        });
+        /*選擇了某段落選項*/
+        $(".story_option").click(function(){
+            alert("option selected.")
         });
         /*舊的回憶*/
         /*範例*/
