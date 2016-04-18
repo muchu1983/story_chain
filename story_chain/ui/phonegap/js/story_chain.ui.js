@@ -35,6 +35,6 @@ This file is part of BSD license
             strike: false,
             format: false
         });
-        
     });
+    
 })(jQuery);

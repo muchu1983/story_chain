@@ -29,7 +29,7 @@ This file is part of BSD license
             $("#textarea_new_story_content").jqteVal(""); //清空 editor
         });
         /* 編輯故事 完成 */
-        $("#btn_edit_ok").click(function(){ 
+        $("#btn_edit_ok").click(function(){
             var intPrevStoryId = intCurrentStoryId;
             var strStoryContent = $("#textarea_new_story_content").val();
             // ajax api /story_chain/api_post/story
