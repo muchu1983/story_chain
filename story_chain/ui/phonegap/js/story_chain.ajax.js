@@ -39,11 +39,12 @@ This file is part of BSD license
             callJsonpApi(strApiUrl, dicJsonData, function(response){
                 intCurrentStoryId = response.new_story_id;
                 $("#popup_story_create_okay").popup("open");
-                $("#popup_story_create_okay #btn_okay").click(function(){
-                    // 切換至閱讀頁
-                    $("body").pagecontainer("change", "#read_story_page", {});
-                });
             });
+        });
+        /* 確認 段落已新增 */
+        $("#popup_story_create_okay #btn_okay").click(function(){
+            // 切換至閱讀頁
+            $("body").pagecontainer("change", "#read_story_page", {});
         });
         /* 編輯故事 取消 */
         $("#btn_edit_cancel").click(function(){ 
