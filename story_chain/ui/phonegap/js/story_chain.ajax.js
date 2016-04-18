@@ -124,15 +124,20 @@ This file is part of BSD license
                                              "</li>"].join("");
                         $("ul#ul_story_option_list").append(strOptionHtml);
                     };
+                    /*選擇了某段落選項*/
+                    // bind event
+                    $(".story_option").click(function(){
+                        var intSelectedStoryId = parseInt($(this).attr("value"));
+                        intCurrentStoryId = intSelectedStoryId;
+                        // unbind event
+                        $(".story_option").unbind("click");
+                    });
                     // 切換至段落選擇頁
                     $("body").pagecontainer("change", "#select_story_page", {});
                 };
             });
         });
-        /*選擇了某段落選項*/
-        $(".story_option").click(function(){
-            alert("option selected.")
-        });
+        
         /*舊的回憶*/
         /*範例*/
         var strApiUrl = strApiServerDomain + "/jsonpapi";
