@@ -12,8 +12,8 @@ This file is part of BSD license
         var content = $.mobile.getScreenHeight() - $(".ui-header").outerHeight() - $(".ui-footer").outerHeight() - $(".ui-content").outerHeight() + $(".ui-content").height();
         $(".ui-content").height(content);
     }
-    /* 調整內容畫面高度 - pagecontainershow pagecontainerchange*/
-    $(document).on("pagecontainershow pagecontainerchange", function(){
+    /* 調整內容畫面高度 - pagecontainershow*/
+    $(document).on("pagecontainershow", function(){
         ScaleContentToDevice();        
     });
     /* 調整內容畫面高度 - resize orientationchange */

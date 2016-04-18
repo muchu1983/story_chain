@@ -56,7 +56,7 @@ This file is part of BSD license
             };
         });
         /* 切換頁面 */
-        $(document).on("pagecontainerchange", function(e, data) {
+        $(document).on("pagecontainerchange", function(){
             var pageId = $("body").pagecontainer("getActivePage").prop("id");
             switch(pageId){
                 case "read_story_page":
@@ -67,6 +67,7 @@ This file is part of BSD license
                         $("span#like_count").text(response.int_like);
                         $("span#dislike_count").text(response.int_dislike);
                         $("#current_story_content").html(response.str_content);
+                        $("#current_story_id").html("ID: " + intCurrentStoryId);
                     });
                     break;
                 case "select_story_page":
