@@ -66,7 +66,7 @@ This file is part of BSD license
                     call_jsonp_api(api_url, {}, function(response){
                         $("span#like_count").text(response.int_like);
                         $("span#dislike_count").text(response.int_dislike);
-                        $("#current_story_content").jqteVal(response.str_content);
+                        $("#current_story_content").html(response.str_content);
                     });
                     break;
                 case "select_story_page":
