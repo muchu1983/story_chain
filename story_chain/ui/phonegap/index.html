@@ -60,10 +60,10 @@ This file is part of BSD license
 
             <div data-role="footer" class="page_footer">
                 <a id="btn_prev_story" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-arrow-l" href="#">前一段</a>
-                <a class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-edit" href="#create_story_page">接寫新段落</a>
+                <a id="btn_create_next_story" class="ui-btn ui-btn-inline ui-btn-icon-left ui-icon-edit" href="#create_story_page">接寫新段落</a>
                 <a class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-arrow-r" href="#select_story_page">下一段</a>
             </div><!-- /footer -->
-            
+            <!-- popup -->
             <div data-role="popup" id="popup_prev_story_not_exists" data-dismissible="true">
                 <p>已經是故事的開始。</p>
             </div>
@@ -99,7 +99,7 @@ This file is part of BSD license
                 <a id="btn_edit_ok" class="ui-btn ui-btn-inline" href="#">完成</a>
                 <a id="btn_edit_cancel" class="ui-btn ui-btn-inline" href="#">放棄</a>
             </div><!-- /footer -->
-            
+            <!-- popup -->
             <div data-role="popup" id="popup_story_create_okay" data-dismissible="false">
                 <p>段落新增完成。</p>
                 <a id="btn_okay" data-role="button" href="#">好</a>

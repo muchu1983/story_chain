@@ -56,7 +56,7 @@ This file is part of BSD license
             };
         });
         /* 顯示閱讀頁 */
-        $(document).on("pagecontainershow", function(e, ui) {
+        $(document).on("pagecontainerchange", function(e, ui) {
             var pageId = $("body").pagecontainer("getActivePage").prop("id");
             if (pageId == "read_story_page"){
                 // ajax api /story_chain/api_get/story/<int:intStoryId>
@@ -74,7 +74,7 @@ This file is part of BSD license
             var api_url = strApiServerDomain + "/story_chain/api_get/story";
             var json_data = {str_type: "prev", int_story_id: intCurrentStoryId};
             call_jsonp_api(api_url, json_data, function(response){
-                if(response.str_prev_story_id == null){
+                if(response.str_prev_story_id == 0){
                     // 已是故事的開頭
                     $("#popup_prev_story_not_exists").popup("open");
                 }else{
@@ -86,7 +86,10 @@ This file is part of BSD license
             });
         });
         /*接寫新段落*/
-        
+        $("#btn_create_next_story").click(function(){
+            // 清空 editor
+            $("#textarea_new_story_content").jqteVal("")
+        });
         /*下一段*/
         /*舊的回憶*/
         /*範例*/

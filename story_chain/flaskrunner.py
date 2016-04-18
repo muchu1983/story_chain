@@ -55,7 +55,7 @@ def apiGetStoryList():
     strType = request.args.get("str_type", type=str) #"next" or "prev"
     intStoryId = request.args.get("int_story_id", type=int)
     lstIntStoryId = db.fetchNextOrPrevStoryId(intStoryId=intStoryId, strFetchType=strType)
-    return make_jsonp_response({"str_prev_story_id":(lstIntStoryId[0] if lstIntStoryId else None)})
+    return make_jsonp_response({"str_prev_story_id":(lstIntStoryId[0] if lstIntStoryId else 0)})
     
 #讀取書籤
 @app.route("/story_chain/api_get/tag/<strTagName>", methods=["GET"])

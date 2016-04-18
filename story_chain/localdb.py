@@ -70,12 +70,12 @@ class LocalDbForStoryChain:
     #取得指定段落的 前段 或 後段
     def fetchNextOrPrevStoryId(self, intStoryId=0, strFetchType=None):
         lstIntStoryId = []
-        if strFetchType is "next": #後段 = 以目前 id 為 intPrevId 的 intStoryId
+        if strFetchType == "next": #後段 = 以目前 id 為 intPrevId 的 intStoryId
             strSQL = "SELECT * FROM story_chain_chain WHERE intPrevId=%d"%intStoryId
             lstRowData = self.db.fetchallSQL(strSQL=strSQL)
             for rowData in lstRowData:
                 lstIntStoryId.append(rowData["intStoryId"])
-        elif strFetchType is "prev":#前段 = 以目前 id 為 intStoryId 的 intPrevId
+        elif strFetchType == "prev":#前段 = 以目前 id 為 intStoryId 的 intPrevId
             strSQL = "SELECT * FROM story_chain_chain WHERE intStoryId=%d"%intStoryId
             lstRowData = self.db.fetchallSQL(strSQL=strSQL)
             for rowData in lstRowData:
