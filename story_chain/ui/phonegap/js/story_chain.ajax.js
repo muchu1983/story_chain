@@ -38,6 +38,7 @@ This file is part of BSD license
                              str_story_content : strStoryContent};
             callJsonpApi(strApiUrl, dicJsonData, function(response){
                 intCurrentStoryId = response.new_story_id;
+                //彈出確認 popup
                 $("#popup_story_create_okay").popup("open");
             });
         });
