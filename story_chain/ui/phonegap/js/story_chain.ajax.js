@@ -117,27 +117,28 @@ This file is part of BSD license
                         var intNextStoryId = lst_int_next_story_id[i];
                         var strOptionHtml = ["<li>",
                                                 "<a class=\"story_option ui-btn ui-btn-icon-right ui-icon-carat-r\"",
-                                                   "href=\"#read_story_page\"", 
+                                                   "href=\"javascript: void(0)\"", 
                                                    "value=\"" + intNextStoryId + "\">",
                                                         "ID: " + intNextStoryId,
                                                 "</a>",
                                              "</li>"].join("");
                         $("ul#ul_story_option_list").append(strOptionHtml);
                     };
-                    /*選擇了某段落選項*/
                     // bind event
                     $(".story_option").click(function(){
+                        /*選擇了某個段落選項*/
                         var intSelectedStoryId = parseInt($(this).attr("value"));
                         intCurrentStoryId = intSelectedStoryId;
                         // unbind event
                         $(".story_option").unbind("click");
+                        //切換至閱讀頁
+                        $("body").pagecontainer("change", "#read_story_page", {});
                     });
                     // 切換至段落選擇頁
                     $("body").pagecontainer("change", "#select_story_page", {});
                 };
             });
         });
-        
         /*舊的回憶*/
         /*範例*/
         var strApiUrl = strApiServerDomain + "/jsonpapi";
