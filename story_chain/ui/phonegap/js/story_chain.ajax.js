@@ -23,6 +23,8 @@ This file is part of BSD license
     
     /* html document ready */
     $(document).ready(function(){
+        /* 好的開始 */
+        
         /* 新的故事 */
         $("#btn_create_first_story").click(function(){ //按下 新的故事
             intCurrentStoryId = 0;
@@ -74,6 +76,15 @@ This file is part of BSD license
                     break;
                 case "select_story_page":
                     /*切換至段落選擇頁*/
+                    $(".story_option").click(function(){// bind event
+                        /*選擇了某個段落選項*/
+                        var intSelectedStoryId = parseInt($(this).attr("value"));
+                        intCurrentStoryId = intSelectedStoryId;
+                        // unbind event
+                        $(".story_option").unbind("click");
+                        //切換至閱讀頁
+                        $("body").pagecontainer("change", "#read_story_page", {});
+                    });
                     break;
                 default:
                     break;
@@ -124,16 +135,6 @@ This file is part of BSD license
                                              "</li>"].join("");
                         $("ul#ul_story_option_list").append(strOptionHtml);
                     };
-                    // bind event
-                    $(".story_option").click(function(){
-                        /*選擇了某個段落選項*/
-                        var intSelectedStoryId = parseInt($(this).attr("value"));
-                        intCurrentStoryId = intSelectedStoryId;
-                        // unbind event
-                        $(".story_option").unbind("click");
-                        //切換至閱讀頁
-                        $("body").pagecontainer("change", "#read_story_page", {});
-                    });
                     // 切換至段落選擇頁
                     $("body").pagecontainer("change", "#select_story_page", {});
                 };
