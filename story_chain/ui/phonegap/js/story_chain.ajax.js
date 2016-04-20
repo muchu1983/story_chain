@@ -21,10 +21,41 @@ This file is part of BSD license
         });
     };
     
+    /* 將 story id 選項，放入 段落選擇頁 */
+    function putOptionToSelectStoryPage(lstIntNextStoryId){
+        $("ul#ul_story_option_list").html(""); //empty ul
+        for (i = 0; i < lstIntNextStoryId.length; i++) {
+            var intNextStoryId = lstIntNextStoryId[i];
+            var strOptionHtml = ["<li>",
+                                    "<a class=\"story_option ui-btn ui-btn-icon-right ui-icon-carat-r\"",
+                                       "href=\"javascript: void(0)\"", 
+                                       "value=\"" + intNextStoryId + "\">",
+                                            "ID: " + intNextStoryId,
+                                    "</a>",
+                                "</li>"].join("");
+            $("ul#ul_story_option_list").append(strOptionHtml);
+        };
+    };
+    
     /* html document ready */
     $(document).ready(function(){
         /* 好的開始 */
-        
+        $("#btn_begin_of_story").click(function(){ //按下 好的開始
+            // ajax api /story_chain/api_get/story
+            var strApiUrl = strApiServerDomain + "/story_chain/api_get/story";
+            var dicJsonData = {str_type: "next", int_story_id: 0};
+            callJsonpApi(strApiUrl, dicJsonData, function(response){
+                var lstIntNextStoryId = response.lst_int_next_story_id;
+                if(lstIntNextStoryId.length == 0){
+                    // 沒有任何故事
+                    $("#popup_begin_of_story_not_exists").popup("open");
+                }else{
+                    putOptionToSelectStoryPage(lstIntNextStoryId);
+                    // 切換至段落選擇頁
+                    $("body").pagecontainer("change", "#select_story_page", {});
+                };
+            });
+        });
         /* 新的故事 */
         $("#btn_create_first_story").click(function(){ //按下 新的故事
             intCurrentStoryId = 0;
@@ -118,23 +149,12 @@ This file is part of BSD license
             var strApiUrl = strApiServerDomain + "/story_chain/api_get/story";
             var dicJsonData = {str_type: "next", int_story_id: intCurrentStoryId};
             callJsonpApi(strApiUrl, dicJsonData, function(response){
-                var lst_int_next_story_id = response.lst_int_next_story_id;
-                if(lst_int_next_story_id.length == 0){
+                var lstIntNextStoryId = response.lst_int_next_story_id;
+                if(lstIntNextStoryId.length == 0){
                     // 已沒有下一段故事
                     $("#popup_next_story_not_exists").popup("open");
                 }else{
-                    $("ul#ul_story_option_list").html(""); //empty ul
-                    for (i = 0; i < lst_int_next_story_id.length; i++) {
-                        var intNextStoryId = lst_int_next_story_id[i];
-                        var strOptionHtml = ["<li>",
-                                                "<a class=\"story_option ui-btn ui-btn-icon-right ui-icon-carat-r\"",
-                                                   "href=\"javascript: void(0)\"", 
-                                                   "value=\"" + intNextStoryId + "\">",
-                                                        "ID: " + intNextStoryId,
-                                                "</a>",
-                                             "</li>"].join("");
-                        $("ul#ul_story_option_list").append(strOptionHtml);
-                    };
+                    putOptionToSelectStoryPage(lstIntNextStoryId);
                     // 切換至段落選擇頁
                     $("body").pagecontainer("change", "#select_story_page", {});
                 };
