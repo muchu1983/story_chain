@@ -37,7 +37,7 @@ This file is part of BSD license
             </div><!-- /content -->
 
             <div data-role="footer" class="page_footer">
-                <h4>v1.0.0.1132</h4>
+                <h4>v1.0.0.1133</h4>
             </div><!-- /footer -->
             <!-- popup -->
             <div data-role="popup" id="popup_begin_of_story_not_exists" class="popup" data-dismissible="true">
@@ -95,7 +95,7 @@ This file is part of BSD license
         <!-- 編撰故事頁 -->
         <div data-role="page" id="create_story_page" data-theme="b">
             <div data-role="header" class="page_header">
-                <a class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-eye" href="javascript: void(0)">查看前一段</a>
+                <a id="btn_show_prev_story_content" class="ui-btn ui-btn-inline ui-btn-icon-right ui-icon-eye" href="javascript: void(0)">查看前一段</a>
             </div><!-- /header -->
 
             <div class="ui-content">
@@ -110,6 +110,8 @@ This file is part of BSD license
             <div data-role="popup" id="popup_story_create_okay" class="popup" data-dismissible="false">
                 <p>段落新增完成。</p>
                 <a id="btn_okay" data-role="button" href="javascript: void(0)">好</a>
+            </div>
+            <div data-role="popup" id="popup_show_prev_story_content" class="popup" data-dismissible="true">
             </div>
         </div><!-- /page -->
         

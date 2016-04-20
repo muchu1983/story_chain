@@ -61,6 +61,23 @@ This file is part of BSD license
             intCurrentStoryId = 0;
             $("#textarea_new_story_content").jqteVal(""); //清空 editor
         });
+        /*查看前一段*/
+        $("#btn_show_prev_story_content").click(function(){
+            $("#popup_show_prev_story_content").html("")//empty popup
+            if (intCurrentStoryId == 0){
+                // 沒有前一段
+                $("#popup_show_prev_story_content").html("<p>查無前一段落內容。</p>")
+            }else{
+                // 取得前一段落內容
+                // ajax api /story_chain/api_get/story/<int:intStoryId>
+                var strApiUrl = strApiServerDomain + "/story_chain/api_get/story/" + intCurrentStoryId;
+                callJsonpApi(strApiUrl, {}, function(response){
+                    $("#popup_show_prev_story_content").html(response.str_content);
+                });
+            };
+            //show popup
+            $("#popup_show_prev_story_content").popup("open");
+        });
         /* 編輯故事 完成 */
         $("#btn_edit_ok").click(function(){
             var intPrevStoryId = intCurrentStoryId;
