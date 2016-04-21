@@ -6,17 +6,19 @@ This file is part of BSD license
 <https://opensource.org/licenses/BSD-3-Clause>
 */
 (function($) {
-    /* 內容畫面高度設定 */
+    /* 內容畫面寬高設定 */
     function ScaleContentToDevice(){
         scroll(0, 0);
-        var content = $.mobile.getScreenHeight() - $(".ui-header").outerHeight() - $(".ui-footer").outerHeight() - $(".ui-content").outerHeight() + $(".ui-content").height();
-        $(".ui-content").height(content);
+        var contentHeight = $(window).height() - $(".ui-header").outerHeight() - $(".ui-footer").outerHeight() - $(".ui-content").outerHeight() + $(".ui-content").height();
+        var contentWidth = $(window).width() - $(".ui-content").outerWidth() + $(".ui-content").width();
+        $(".ui-content").height(contentHeight);
+        $(".ui-content").width(contentWidth);
     }
-    /* 調整內容畫面高度 - pagecontainershow*/
+    /* 調整內容畫面寬高 - pagecontainershow*/
     $(document).on("pagecontainershow", function(){
         ScaleContentToDevice();        
     });
-    /* 調整內容畫面高度 - resize orientationchange */
+    /* 調整內容畫面寬高 - resize orientationchange */
     $(window).on("resize orientationchange", function(){
         ScaleContentToDevice();
     });

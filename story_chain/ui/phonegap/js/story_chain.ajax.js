@@ -24,6 +24,7 @@ This file is part of BSD license
     /* 將 story id 選項，放入 段落選擇頁 */
     function putOptionToSelectStoryPage(lstIntNextStoryId){
         $("ul#ul_story_option_list").html(""); //empty ul
+        $("input[data-type='search']").val(""); //empty search
         for (i = 0; i < lstIntNextStoryId.length; i++) {
             var intNextStoryId = lstIntNextStoryId[i];
             var strOptionHtml = ["<li>",
