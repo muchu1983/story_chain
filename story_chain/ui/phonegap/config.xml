@@ -26,4 +26,5 @@ This file is part of BSD license
     <!-- Plugin -->
     <plugin name="cordova-plugin-whitelist" spec="1.2.1" />
     <allow-navigation href="http://bennu.ddns.net/*" />
+    <allow-navigation href="http://bennu-aws.ddns.net/*" />
 </widget>
