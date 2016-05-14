@@ -6,11 +6,9 @@ This file is part of BSD license
 
 <https://opensource.org/licenses/BSD-3-Clause>
 """
-from tkinter import Tk
-
+import story_chain.flaskrunner as flaskrunner
 def entry_point():
-    root = Tk()
-    root.mainloop()
+    flaskrunner.start_flask_server()
 
 if __name__ == "__main__":
     entry_point()

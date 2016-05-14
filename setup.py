@@ -13,7 +13,7 @@ with open("README.txt") as file:
 
 setup(
     name = "story_chain",
-    version = "0.0.1.dev1",
+    version = "0.0.2.dev1",
     keywords = ["bennu", "story", "muchu", "chain"],
     description = "story chaining phone app",
     author = "MuChu Hsu",
@@ -23,8 +23,8 @@ setup(
     long_description=long_description,
     packages = find_packages(),
     include_package_data = True,
-    install_requires = ["bennu>=0.3.1.dev13"],
-    platforms = "python 3.3",
+    install_requires = ["bennu>=0.3.2.dev4"],
+    platforms = "python 3.4",
     entry_points = {"console_scripts":["story_chain=story_chain.launcher:entry_point"]},
     classifiers = [
         "Development Status :: 3 - Alpha",
