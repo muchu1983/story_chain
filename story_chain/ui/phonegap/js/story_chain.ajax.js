@@ -6,8 +6,9 @@ This file is part of BSD license
 <https://opensource.org/licenses/BSD-3-Clause>
 */
 (function($){
-    var strApiServerDomain = "http://bennu.ddns.net:5000"; //deploy
-    //var strApiServerDomain = "http://127.0.0.1:5000"; //test
+    //var strApiServerDomain = "http://bennu.ddns.net:5000"; //deploy to bennu
+    //var strApiServerDomain = "http://bennu-aws.ddns.net:5000"; //deploy to bennu-aws
+    var strApiServerDomain = "http://127.0.0.1:5000"; //deploy to localhost
     var intCurrentStoryId;
     
     /* 呼叫 story_chain JSONP API */
